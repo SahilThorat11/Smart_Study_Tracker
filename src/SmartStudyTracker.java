@@ -187,7 +187,7 @@ public class SmartStudyTracker
             if(summary.containsKey(s))
             {
                 old = summary.get(s);
-                summary.put(s , d + old);
+                summary.put(s, d + old);
             }
             else
             {
