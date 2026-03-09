@@ -73,6 +73,6 @@ class SmartStudyTrackerApp
 
         } while(iChoice != 6);   // Loop runs until user selects Exit
     
-    } // End of main
+    } // End of main()
 
-} // End of class
+} // End of class SmartStudyTrackerApp
