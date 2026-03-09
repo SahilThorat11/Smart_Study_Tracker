@@ -47,4 +47,5 @@ public class StudyLog
     {
         return Date + " | " + Subject + " | " + Duration + " | " + Description;
     }
-}
+
+}   // End of StudyLog
