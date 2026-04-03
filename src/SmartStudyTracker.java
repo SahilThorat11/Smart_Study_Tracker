@@ -41,6 +41,8 @@ public class SmartStudyTracker
 
         System.out.println("Study log stored successfully.");
         System.out.println("----------------------------------------------------------");
+
+        sobj.close();
     }
 
     // Method to display all logs
