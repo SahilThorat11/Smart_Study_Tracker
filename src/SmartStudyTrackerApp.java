@@ -32,5 +32,7 @@ public class SmartStudyTrackerApp
         {
             System.out.println("Invalid choice! Exiting...");
         }
+
+        sobj.close();
     }
 }
