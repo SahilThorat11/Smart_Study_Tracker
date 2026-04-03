@@ -51,5 +51,7 @@ public class SmartStudyTrackerConsole
             }
 
         } while(iChoice != 6);
+
+        sobj.close();
     }
 }
