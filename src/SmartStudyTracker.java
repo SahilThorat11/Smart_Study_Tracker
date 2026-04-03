@@ -85,7 +85,7 @@ public class SmartStudyTracker
                 dir.mkdir();
             }
 
-            String FileName = "data/SmartStudyTracker.csv";
+            String FileName = "../Data/SmartStudyTracker.csv";
 
             // FileWriter to write CSV
             FileWriter fwobj = new FileWriter(FileName);
@@ -201,6 +201,60 @@ public class SmartStudyTracker
             System.out.println("Subject : " + sub + " | Total Study duration : " + summary.get(sub));
         }
 
-        System.out.println("----------------------------------------------------------");
+        System.out.println("----------------------------------------------------------");  
+    }
+
+     // Add log from GUI
+    public void addLogFromGUI(StudyLog log)
+    {
+        Database.add(log);
+    }
+
+    // Return all logs
+    public ArrayList<StudyLog> getAllLogs()
+    {
+        return Database;
+    }
+
+    // Return summary by date (String format)
+    public String getSummaryByDate()
+    {
+        TreeMap<LocalDate, Double> summary = new TreeMap<>();
+
+        for(StudyLog s : Database)
+        {
+            summary.put(s.getDate(),
+                summary.getOrDefault(s.getDate(), 0.0) + s.getDuration());
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        for(LocalDate d : summary.keySet())
+        {
+            sb.append(d + " : " + summary.get(d) + " hrs\n");
+        }
+
+        return sb.toString();
+    }
+
+    // Return summary by subject (String format)
+    public String getSummaryBySubject()
+    {
+        TreeMap<String, Double> summary = new TreeMap<>();
+
+        for(StudyLog s : Database)
+        {
+            summary.put(s.getSubject(),
+                summary.getOrDefault(s.getSubject(), 0.0) + s.getDuration());
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        for(String sub : summary.keySet())
+        {
+            sb.append(sub + " : " + summary.get(sub) + " hrs\n");
+        }
+
+        return sb.toString();
     }
 }
